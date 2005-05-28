@@ -1,0 +1,78 @@
+NAME
+    WordNet-SenseRelate-WordToSet version 0.01
+
+OVERVIEW
+    This module performs word sense disambiguation (WSD), which is the
+    process of selecting the correct sense for a word in a given sense. The
+    correct sense is selected from a sense inventory that lists the possible
+    meanings of a word. This module uses the WordNet lexical database as its
+    sense inventory.
+
+SYNOPSIS
+       use WordNet::SenseRelate::WordToSet;
+       use WordNet::QueryData;
+
+       my $qd = WordNet::QueryData->new;
+
+       my %options = (wordnet => $qd,
+                      measure => 'WordNet::Similarity::lesk');
+
+       my $wsd = WordNet::SenseRelate::WordToSet->new (%options);
+
+       my $result = $wsd->disambiguate (target => 'java',
+                          context => ['programming_language', 'applet']);
+
+       foreach my $key (keys %$result) {
+           print $key, ' : ', $result->{$key}, "\n";
+       }
+
+CONTENTS
+    When the distribution is unpacked, several subdirectories are created:
+
+    /lib
+        This directory contains the Perl modules that do the actual work of
+        disambiguation. By default, these files are isntalled into
+        /usr/local/lib/site_perl/PERL_VERSION (where PERL_VERSION is the
+        version of Perl you are using), or a similar directory. See the
+        INSTALL file for more details.
+
+    /utils
+        This directory contains a script, wordtoset.pl, that lets you run
+        the WSD software without writing your own Perl script.
+
+    /t  This directory contains test scripts. These scripts are run when you
+        run 'make test'.
+
+SEE ALSO
+    WordNet::SenseRelate::WordToSet(3) wordtoset.pl(1)
+
+    The main web page for SenseRelate is
+
+    <http://senserelate.sourceforge.net/>
+
+    There are several mailing lists for SenseRelate:
+
+    <http://lists.sourceforge.net/lists/listinfo/senserelate-users/>
+
+    <http://lists.sourceforge.net/lists/listinfo/senserelate-news/>
+
+    <http://lists.sourceforge.net/lists/listinfo/senserelate-developers/>
+
+AUTHORS
+    Jason Michelizzi <jmichelizzi at users.sourceforge.net>
+
+    Ted Pedersen <tpederse at d.umn.edu>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2005 by Jason Michelizzi and Ted Pedersen
+
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the
+    Free Software Foundation; either version 2 of the License, or (at your
+    option) any later version.
+
+    The program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+    Public License for more details.
+

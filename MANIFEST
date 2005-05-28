@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/WordNet-SenseRelate-WordToSet.t
+lib/WordNet/SenseRelate/WordToSet.pm

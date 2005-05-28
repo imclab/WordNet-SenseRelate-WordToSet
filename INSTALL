@@ -1,0 +1,55 @@
+NAME
+    INSTALL - installation instructions
+
+SYNOPSIS
+        perl Makefile.PL
+        make
+        make test
+        make install
+
+DESCRIPTION
+  Dependencies
+    Two modules are required by WordNet::SenseRelate::WordToSet:
+
+        WordNet::QueryData
+        WordNet::Similarity
+
+    Both modules are available from CPAN (<http://search.cpan.org>).
+
+  Detailed instructions
+    Before installing this library, the dependencies listed above must be
+    resolved.
+
+    If you have superuser/root access, you should be able to install
+    WordNet::SenseRelate::WordToSet by following these simple steps:
+
+        perl Makefile.PL
+        make
+        make test # optional, but recommended
+        su        # or use sudo, if applicable
+        make install
+
+    If you need to install this distribution in your local user account
+    because you lack superuser privileges, then the recommended method on
+    Unix-like systems is as follows:
+
+        perl Makfile.PL PREFIX=~/senserelate LIB=~/lib
+        make
+        make test
+        make install
+
+    This will install the executable scripts into ~/senserelate/bin, the man
+    pages in ~/senserelate/man, and the libraries into ~/lib. you will need
+    to set your PERL5LIB variable to point to the LIB directory.
+
+    In bash:
+
+        export PERL5LIB=~/lib
+
+    In csh or tcsh:
+
+        setenv PERL5LIB ~/lib
+
+    Add these lines to your .bashrc, .bash_profile, or .cshrc files as the
+    case may be.
+
