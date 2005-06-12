@@ -1,6 +1,10 @@
 Changes
+INSTALL
+INSTALL.pod
+lib/WordNet/SenseRelate/WordToSet.pm
 Makefile.PL
 MANIFEST
 README
+README.pod
 t/WordNet-SenseRelate-WordToSet.t
-lib/WordNet/SenseRelate/WordToSet.pm
+utils/wordtoset.pl

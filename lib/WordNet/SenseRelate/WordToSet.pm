@@ -1,6 +1,6 @@
 package WordNet::SenseRelate::WordToSet;
 
-# $Id: WordToSet.pm,v 1.5 2005/05/25 20:23:21 jmichelizzi Exp $
+# $Id: WordToSet.pm,v 1.6 2005/06/12 03:01:41 jmichelizzi Exp $
 
 =head1 NAME
 
@@ -38,7 +38,7 @@ use warnings;
 use Carp;
 
 our @ISA = ();
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 my %wordnet;
 my %simMeasure;

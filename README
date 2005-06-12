@@ -1,5 +1,5 @@
 NAME
-    WordNet-SenseRelate-WordToSet version 0.01
+    WordNet-SenseRelate-WordToSet version 0.02
 
 OVERVIEW
     This module performs word sense disambiguation (WSD), which is the

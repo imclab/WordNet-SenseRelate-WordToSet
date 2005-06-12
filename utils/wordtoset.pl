@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 
-# $Id: wordtoset.pl,v 1.5 2005/05/26 21:53:23 jmichelizzi Exp $
+# $Id: wordtoset.pl,v 1.6 2005/06/12 03:01:41 jmichelizzi Exp $
 
-my $Version = '0.01';
+my $Version = '0.02';
 
 use strict;
 use warnings;
