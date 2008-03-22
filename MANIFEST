@@ -1,10 +1,15 @@
-Changes
+bin/wordtoset.pl
+CHANGES
+doc/CHANGES.pod
+doc/INSTALL.pod
+doc/README.pod
+doc/update-pod.sh
+FDL.txt
+GPL.txt
 INSTALL
-INSTALL.pod
 lib/WordNet/SenseRelate/WordToSet.pm
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 README
-README.pod
 t/WordNet-SenseRelate-WordToSet.t
-utils/wordtoset.pl
+META.yml                                 Module meta-data (added by MakeMaker)

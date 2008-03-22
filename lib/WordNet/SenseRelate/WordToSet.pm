@@ -1,26 +1,64 @@
 package WordNet::SenseRelate::WordToSet;
 
-# $Id: WordToSet.pm,v 1.6 2005/06/12 03:01:41 jmichelizzi Exp $
-
 =head1 NAME
 
-WordNet::SenseRelate::WordToSet - perform WordToSet style disambiguation
+WordNet::SenseRelate::WordToSet - find sense of a target word most related to given set of words
 
 =head1 SYNOPSIS
 
   use WordNet::SenseRelate::WordToSet;
   use WordNet::QueryData;
   my $qd = WordNet::QueryData->new;
-  my $wsd = WordNet::SenseRelate::WordToSet->new (%options);
-  my $result = $wsd->disambiguate ();
 
+  my %options = (measure => 'WordNet::Similarity::jcn',
+                 wordnet => $qd);
+
+  my $mod = WordNet::SenseRelate::WordToSet->new (%options);
+
+  my $res = $mod->disambiguate (target => 'bank',
+                              context => [qw/money cash dollar/]);
+
+  # all senses for target and their scores are returned
+  # we will just print the sense most related to the set
+
+  $best_score = -100;
+  foreach my $key (keys %$res) {
+    next unless defined $res->{$key};
+    if ($res->{$key} > $best_score) {
+        $best_score = $res->{$key};
+        $best = $key;
+    }
+  }
+
+  # let's call WordNet::QueryData to get the gloss of the most
+  # related sense of the target to the set 
+
+  print "$best : ", join(", ", $qd->querySense($best, "glos")), "\n";
+
+  my $res = $mod->disambiguate (target => 'bank',
+                              context => [qw/river shore slope water/]);
+
+  # all senses for target and their scores are returned
+  # we will just print the sense most related to the set
+
+  $best_score = -100;
+  foreach my $key (keys %$res) {
+    next unless defined $res->{$key};
+    if ($res->{$key} > $best_score) {
+        $best_score = $res->{$key};
+        $best = $key;
+    }
+  }
+
+  # let's call WordNet::QueryData to get the gloss of the most
+  # related sense of the target to the set 
+
+  print "$best : ", join(", ", $qd->querySense($best, "glos")), "\n";
+  
 =head1 DESCRIPTION
 
-WordNet::SenseRelate::WordToSet implements a word sense disambiguation
-algorithm for disambiguation a single word that is associated with
-a set of words.  The algorithm is designed to choose the sense of the
-ambiguous word that is most highly semantically related to the associated
-set of words.
+WordNet::SenseRelate::WordToSet finds the sense of a given target word 
+that is most related to the words in a given set. 
 
 =head2 Methods
 
@@ -38,7 +76,7 @@ use warnings;
 use Carp;
 
 our @ISA = ();
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my %wordnet;
 my %simMeasure;
@@ -57,7 +95,6 @@ my %threshold;
 use constant TR_PAIRWISE   =>  1;  # show all the non-zero similarity scores
 use constant TR_ZERO       =>  2;
 use constant TR_MEASURE    =>  4;  # show similarity measure traces
-
 
 =item B<new>Z<>
 
@@ -484,43 +521,27 @@ __END__
 
 =head1 SEE ALSO
 
-wordtoset.pl
-
-The main web page for SenseRelate is
-
 L<http://senserelate.sourceforge.net/>.
 
-There are several mailing lists for SenseRelate:
-
-L<http://lists.sourceforge.net/lists/listinfo/senserelate-users/>
-
-L<http://lists.sourceforge.net/lists/listinfo/senserelate-news/>
-
-L<http://lists.sourceforge.net/lists/listinfo/senserelate-developers/>
-
-=head1 REFERENCES
-
-=over
-
-=item [1]
-
-Ted Pedersen, Satanjeev Banerjee, and Siddharth Patwardhan (2005)
-Maximizing Semantic Relatedness to Perform Word Sense Disambiguation,
-University of Minnesota Supercomputing Institute Research Report UMSI
-2005/25, March.
-L<http://www.msi.umn.edu/general/Reports/rptfiles/2005-25.pdf>
-
-=back
+ Ted Pedersen, Satanjeev Banerjee, and Siddharth Patwardhan (2005)
+ Maximizing Semantic Relatedness to Perform Word Sense Disambiguation,
+ University of Minnesota Supercomputing Institute Research Report UMSI
+ 2005/25, March.
+ L<http://www.msi.umn.edu/general/Reports/rptfiles/2005-25.pdf>
 
 =head1 AUTHORS
 
-Jason Michelizzi, E<lt>jmichelizzi at users.sourceforge.netE<gt>
+Ted Pedersen, University of Minnesota, Duluth
+tpederse at d.umn.edu
 
-Ted Pedersen, E<lt>tpederse at d.umn.eduE<gt>
+Jason Michelizzi
+
+Last modified by :
+$Id: WordToSet.pm,v 1.8 2008/03/22 01:14:04 tpederse Exp $
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2005 by Jason Michelizzi and Ted Pedersen
+Copyright (C) 2005-2008 by Jason Michelizzi and Ted Pedersen
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -531,5 +552,10 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  
+USA
 
 =cut

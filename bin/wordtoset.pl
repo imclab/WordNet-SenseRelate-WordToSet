@@ -1,8 +1,6 @@
 #!/usr/local/bin/perl
 
-# $Id: wordtoset.pl,v 1.6 2005/06/12 03:01:41 jmichelizzi Exp $
-
-my $Version = '0.02';
+my $Version = '0.03';
 
 use strict;
 use warnings;
@@ -31,11 +29,10 @@ unless ($res) {
 
 if ($version) {
     print "wordtoset.pl version ", $Version, "\n";
-    print "Copyright (C) 2005, Jason Michelizzi and Ted Pedersen\n";
+    print "Copyright (C) 2005-2008, Ted Pedersen and Jason Michelizzi\n";
     print "This is free software, and you are welcome to redistribute it\n";
     print "under certain conditions.  This software comes with ABSOLUTELY\n";
-    print "NO WARRANTY.  See the file COPYING or run 'perldoc perlgpl' for\n";
-    print "more information.\n";
+    print "NO WARRANTY.  See the file GPL.txt for more information.\n";
     exit;
 }
 
@@ -72,7 +69,8 @@ my $result = $wts->disambiguate (target => $target,
 				      context => [@context]);
 
 for my $key (sort {$result->{$b} <=> $result->{$a}} keys %$result) {
-  print $key, ' ', $result->{$key}, "\n";
+  print $key, ' : ', $result->{$key},' : ', 
+	$qd -> querySense($key,'glos'), , "\n\n";
 }
 
 if ($trace) {
@@ -88,8 +86,8 @@ sub showUsage
     print "       [--help] [--version]\n";
 
     if ($long) {
-	print "  --type MEASURE   WordNet::Similarity semantic relatedness measure\n";
-	print "  --config FILE    Configuration file for relatedness measure\n";
+	print "  --type MEASURE   WordNet::Similarity measure\n";
+	print "  --config FILE    Configuration file for measure\n";
 	print "  --trace LEVEL    Turn tracing on/off\n";
 	print "  --help           Show this help message\n";
 	print "  --version        Show version information\n";
@@ -101,19 +99,24 @@ __END__
 
 =head1 NAME
 
-wordtoset.pl - disambiguate a single word by comparing it to a set of words
+wordtoset.pl - find the sense of a given target word that is most 
+related to a given set of words 
 
 =head1 SYNOPSIS
 
-wordtoset.pl target context1 [context2 ...] [--type MEASURE] [--trace INT]
-[--config FILE] | --help | --version
+ wordtoset.pl bank money cash dollars loans --type WordNet::Similarity::res
+
+ wordtoset.pl bank river shore fish swim --type WordNet::Similarilarity::res
+
+ wordtoset.pl target context1 [context2 ...] [--type MEASURE] [--trace INT]
+ [--config FILE] | --help | --version
 
 =head1 DESCRIPTION
 
-wordtoset.pl performs word sense disambiguation on a single target word
-by comparing the target word to a set of context words.  It serves as
-a command line interface to the WordNet::SenseRelate::WordToSet Perl
-module.
+wordtoset.pl determines which sense of a word is most related to a given 
+set of words. It outputs the sum of the similarity of relatedness scores  
+of the first word (the target) to the highest scoring sense of each of 
+the words in the set. 
 
 =head1 PARAMETERS & OPTIONS
 
@@ -121,13 +124,14 @@ module.
 
 =item target
 
-The target word to disambiguation.
+The target word to assign a sense to (or disambiguate)
 
 =item context1 [context2...]
 
-A list of words to use as context for disambiguating the target word.  No
-order is presumed among the context words or among the context words and
-the target word.
+A list of words to use as context for disambiguating the target word. 
+The order of the context words does not matter. The first word is 
+automatically the target word, and all the remaining words are the set 
+to be compared to.
 
 =item --type B<MEASURE>
 
@@ -169,23 +173,17 @@ Show detailed help message.
 
 =head1 SEE ALSO
 
-WordNet::SenseRelate::WordToSet(3)
-
 L<http://senserelate.sourceforge.net/>
-
-There are several mailing lists for SenseRelate:
-
-L<http://lists.sourceforge.net/lists/listinfo/senserelate-users/>
-
-L<http://lists.sourceforge.net/lists/listinfo/senserelate-news/>
-
-L<http://lists.sourceforge.net/lists/listinfo/senserelate-developers/>
 
 =head1 AUTHORS
 
-Jason Michelizzi, E<lt>jmichelizzi at users.sourceforge.netE<gt>
+Ted Pedersen, University of Minnesota, Duluth
+tpederse at d.umn.edu
 
-Ted Pedersen, E<lt>tpederse at d.umn.eduE<gt>
+Jason Michelizzi 
+
+Last modified by : 
+$Id: wordtoset.pl,v 1.3 2008/03/22 01:58:12 tpederse Exp $
 
 =head1 BUGS
 
@@ -193,7 +191,7 @@ None known.
 
 =head1 COPYRIGHT
 
-Copyright (C) 2005 Jason Michelizzi and Ted Pedersen
+Copyright (C) 2005-2008 Jason Michelizzi and Ted Pedersen
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
