@@ -1,7 +1,7 @@
 # Before `make install' is performed this script should be runnable with
 # `make test'. After `make install' it should work as `perl WordNet-SenseRelate-WordToSet.t'
 
-# $Id: WordNet-SenseRelate-WordToSet.t,v 1.3 2008/03/22 01:29:13 tpederse Exp $
+# $Id: WordNet-SenseRelate-WordToSet.t,v 1.4 2008/04/07 03:28:36 tpederse Exp $
 
 #########################
 

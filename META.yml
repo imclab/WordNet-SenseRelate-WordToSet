@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:                WordNet-SenseRelate-WordToSet
-version:             0.03
-abstract:            find sense of a target word most related to given set of words
+version:             0.04
+abstract:            Find the WordNet Sense of a Target 
 license:             gpl
 author:              
     - Ted Pedersen <tpederse at d.umn.edu>

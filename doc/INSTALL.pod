@@ -1,6 +1,6 @@
 =head1 NAME
 
-INSTALL - installation instructions for WordNet-SenseRelate-WordToSet
+INSTALL - Installation instructions for WordNet-SenseRelate-WordToSet
 
 =head1 SYNOPSIS
 
@@ -64,11 +64,9 @@ case may be.
  tpederse at d.umn.edu
 
 This document last modified by :
-$Id: INSTALL.pod,v 1.1 2008/03/21 23:56:08 tpederse Exp $
+$Id: INSTALL.pod,v 1.2 2008/04/07 03:28:36 tpederse Exp $
 
-=head1 SEE ALSO
-
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT 
 
 Copyright (c) 2004-2008, Ted Pedersen
 

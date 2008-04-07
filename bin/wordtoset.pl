@@ -99,8 +99,7 @@ __END__
 
 =head1 NAME
 
-wordtoset.pl - find the sense of a given target word that is most 
-related to a given set of words 
+wordtoset.pl - Command line interface to WordNet-SenseRelate-WordToSet
 
 =head1 SYNOPSIS
 
@@ -173,17 +172,17 @@ Show detailed help message.
 
 =head1 SEE ALSO
 
-L<http://senserelate.sourceforge.net/>
+ L<http://senserelate.sourceforge.net/>
 
 =head1 AUTHORS
 
-Ted Pedersen, University of Minnesota, Duluth
-tpederse at d.umn.edu
+ Ted Pedersen, University of Minnesota, Duluth
+ tpederse at d.umn.edu
 
-Jason Michelizzi 
+ Jason Michelizzi 
 
 Last modified by : 
-$Id: wordtoset.pl,v 1.3 2008/03/22 01:58:12 tpederse Exp $
+$Id: wordtoset.pl,v 1.4 2008/04/07 03:35:51 tpederse Exp $
 
 =head1 BUGS
 

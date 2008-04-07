@@ -1,10 +1,12 @@
 NAME
-    CHANGES.pod
-
-SYNOPSIS
-    Revision history for Perl module WordNet::SenseRelate::WordToSet
+    CHANGES - Revision history for WordNet::SenseRelate::WordToSet
 
 DESCRIPTION
+    0.04
+    Released April 6, 2008 (all changes by TDP)
+
+    *   Cleaned up some formatting issues for CPAN display
+
     0.03
     Released March 21, 2008 (all changes by TDP)
 
@@ -36,8 +38,8 @@ AUTHORS
      Ted Pedersen, University of Minnesota, Duluth
      tpederse at d.umn.edu
 
-    This document last modified by : $Id: CHANGES.pod,v 1.2 2008/03/22
-    01:09:12 tpederse Exp $
+    This document last modified by : $Id: CHANGES.pod,v 1.4 2008/04/07
+    03:28:36 tpederse Exp $
 
 SEE ALSO
 COPYRIGHT AND LICENSE

@@ -1,5 +1,5 @@
 NAME
-    INSTALL - installation instructions for WordNet-SenseRelate-WordToSet
+    INSTALL - Installation instructions for WordNet-SenseRelate-WordToSet
 
 SYNOPSIS
         perl Makefile.PL
@@ -57,11 +57,10 @@ AUTHOR
      Ted Pedersen, University of Minnesota, Duluth
      tpederse at d.umn.edu
 
-    This document last modified by : $Id: INSTALL.pod,v 1.1 2008/03/21
-    23:56:08 tpederse Exp $
+    This document last modified by : $Id: INSTALL.pod,v 1.2 2008/04/07
+    03:28:36 tpederse Exp $
 
-SEE ALSO
-COPYRIGHT AND LICENSE
+COPYRIGHT
     Copyright (c) 2004-2008, Ted Pedersen
 
     Permission is granted to copy, distribute and/or modify this document

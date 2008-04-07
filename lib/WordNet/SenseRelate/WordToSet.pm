@@ -2,7 +2,8 @@ package WordNet::SenseRelate::WordToSet;
 
 =head1 NAME
 
-WordNet::SenseRelate::WordToSet - find sense of a target word most related to given set of words
+WordNet::SenseRelate::WordToSet - Find the WordNet Sense of a Target 
+Word that is Most Related to a Given Set of Words
 
 =head1 SYNOPSIS
 
@@ -76,7 +77,7 @@ use warnings;
 use Carp;
 
 our @ISA = ();
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 my %wordnet;
 my %simMeasure;
@@ -521,7 +522,7 @@ __END__
 
 =head1 SEE ALSO
 
-L<http://senserelate.sourceforge.net/>.
+ L<http://senserelate.sourceforge.net/>
 
  Ted Pedersen, Satanjeev Banerjee, and Siddharth Patwardhan (2005)
  Maximizing Semantic Relatedness to Perform Word Sense Disambiguation,
@@ -531,15 +532,15 @@ L<http://senserelate.sourceforge.net/>.
 
 =head1 AUTHORS
 
-Ted Pedersen, University of Minnesota, Duluth
-tpederse at d.umn.edu
+ Ted Pedersen, University of Minnesota, Duluth
+ tpederse at d.umn.edu
 
-Jason Michelizzi
+ Jason Michelizzi
 
 Last modified by :
-$Id: WordToSet.pm,v 1.8 2008/03/22 01:14:04 tpederse Exp $
+$Id: WordToSet.pm,v 1.10 2008/04/07 03:29:47 tpederse Exp $
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT 
 
 Copyright (C) 2005-2008 by Jason Michelizzi and Ted Pedersen
 
